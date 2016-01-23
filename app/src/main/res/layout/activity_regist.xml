@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_background"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="#333333"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/activity_login_cacel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:src="@mipmap/zuowen_back" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/title_line" />
+
+    <LinearLayout
+        android:id="@+id/ll_name"
+        android:layout_width="fill_parent"
+        android:layout_height="51.0dp"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginTop="25.0dip"
+        android:gravity="center|left"
+        android:background="@drawable/editext_line"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="取一个独一无二的笔名吧，7字内"
+            android:background="@null"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:maxLength="14"
+            android:singleLine="true"
+            android:textColor="#ff1d1d1d"
+            android:textColorHint="@color/contribute_title_hint"
+            android:textSize="18.0sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_email"
+        android:layout_width="fill_parent"
+        android:layout_height="51.0dp"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginTop="25.0dip"
+        android:gravity="center|left"
+        android:background="@drawable/editext_line"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/user_email"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="建议使用QQ邮箱"
+            android:background="@null"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:singleLine="true"
+            android:textColor="#ff1d1d1d"
+            android:textColorHint="@color/contribute_title_hint"
+            android:textSize="18.0sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_psw"
+        android:layout_width="fill_parent"
+        android:layout_height="51.0dp"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginTop="25.0dip"
+        android:gravity="center|left"
+        android:background="@drawable/editext_line"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/user_psw"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="密码：6-16个字符"
+            android:password="true"
+            android:background="@null"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:maxLength="16"
+            android:singleLine="true"
+            android:textColor="#ff1d1d1d"
+            android:textColorHint="@color/contribute_title_hint"
+            android:textSize="18.0sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_repsw"
+        android:layout_width="fill_parent"
+        android:layout_height="51.0dp"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginTop="25.0dip"
+        android:gravity="center|left"
+        android:background="@drawable/editext_line"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/user_repsw"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:password="true"
+            android:hint="确认密码：6-16个字符"
+            android:background="@null"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:maxLength="16"
+            android:singleLine="true"
+            android:textColor="#ff1d1d1d"
+            android:textColorHint="@color/contribute_title_hint"
+            android:textSize="18.0sp" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rl_grade"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/editext_line"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/user_grade"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:gravity="center_vertical"
+            android:text="请选择年级"
+            android:textColor="@color/contribute_title_hint"
+            android:drawableRight="@mipmap/zuowen_regist_grade"
+            android:textSize="20sp"  />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="51.0dp"
+        android:layout_marginLeft="15.0dip"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginTop="25.0dip"
+        android:gravity="center|left"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:drawableLeft="@mipmap/zuowen_regist_choose"
+            android:text=" 我已阅读过投稿须知"
+            android:textColor="@color/contribute_selector_text"
+            android:textSize="18sp"
+            />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnlogin"
+            android:layout_width="fill_parent"
+            android:layout_height="51dp"
+            android:layout_marginLeft="15.0dip"
+            android:layout_marginRight="15.0dip"
+            android:layout_marginTop="5.0dip"
+            android:layout_gravity="center"
+            android:background="@drawable/circular_bead"
+            android:text="注册"
+            android:textSize="18sp"
+            android:textColor="#ffffff"/>
+    </LinearLayout>
+</ScrollView>
