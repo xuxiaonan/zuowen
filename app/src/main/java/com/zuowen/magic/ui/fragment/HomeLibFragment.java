@@ -13,6 +13,7 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import com.umeng.analytics.MobclickAgent;
 import com.zuowen.magic.BaseFragment;
 import com.zuowen.magic.R;
 import com.zuowen.magic.adapter.ArtListAdapter;
@@ -184,5 +185,15 @@ public class HomeLibFragment extends BaseFragment implements View.OnClickListene
                 getActivity().overridePendingTransition(R.anim.animation_2,R.anim.animation_1);
                 break;
         }
+    }
+
+
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("HomeContributeFragment"); //统计页面，"MainScreen"为页面名称，可自定义
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("HomeContributeFragment");
     }
 }

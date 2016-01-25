@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.umeng.analytics.MobclickAgent;
 import com.zuowen.magic.BaseActivity;
 import com.zuowen.magic.R;
 import com.zuowen.magic.bean.request.MagicRegistRequset;
@@ -151,8 +152,18 @@ public class RegistActivity extends BaseActivity{
         rl_grade = findView(R.id.rl_grade);
         btnlogin =findView(R.id.btnlogin);
     }
-
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("RegistActivity");
+        MobclickAgent.onResume(this);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("RegistActivity");
+        MobclickAgent.onPause(this);
+    }
 
 
 }

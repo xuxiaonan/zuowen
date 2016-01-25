@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.zuowen.magic.bean.request.ArtListRequest;
 import com.zuowen.magic.bean.request.MagicContributeRequset;
 import com.zuowen.magic.bean.request.MagicLoginRequest;
+import com.zuowen.magic.bean.request.MagicPassWordRequest;
 import com.zuowen.magic.bean.request.MagicRegistRequset;
 import com.zuowen.magic.bean.request.MagicSendCode;
 
@@ -26,7 +27,7 @@ public class UrlJsonUtil {
     public static final String ADDARTPAGE="/addartpage";
     public static final String REGISTER="/register";
     public static final String SENDCODE="/sendcode";
-
+    public static final String SETPWD="/setpwd";
 
 
     private static Gson mGson = new Gson();
@@ -80,9 +81,19 @@ public class UrlJsonUtil {
         String json = mGson.toJson(request);
         return json;
     }
-    public  static String getSendcode(String str1,MagicSendCode request) {
+    public  static String getSendcodeJson(String str1,MagicSendCode request) {
 
         request.email=str1;
+
+        String json = mGson.toJson(request);
+        return json;
+    }
+    public  static String getPassWordJson(String str1,String str2,String str3,String str4,MagicPassWordRequest request) {
+
+        request.email=str1;
+        request.psd=str2;
+        request.psd1=str3;
+        request.code=str4;
 
         String json = mGson.toJson(request);
         return json;

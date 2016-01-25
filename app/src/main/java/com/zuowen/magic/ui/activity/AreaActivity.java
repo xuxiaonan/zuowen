@@ -19,6 +19,7 @@ import android.widget.PopupWindow;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.zuowen.magic.BaseActivity;
 import com.zuowen.magic.R;
 import com.zuowen.magic.view.CityPicker;
@@ -147,10 +148,18 @@ public class AreaActivity extends BaseActivity implements View.OnClickListener{
         map = new HashMap<>();
         map.put("text", "高三");
         list.add(map);
-
-
-
         return list;
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("AreaActivity");
+        MobclickAgent.onResume(this);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("AreaActivity");
+        MobclickAgent.onPause(this);
+    }
 }

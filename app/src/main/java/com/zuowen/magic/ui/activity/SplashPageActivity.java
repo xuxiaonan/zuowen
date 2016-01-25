@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.umeng.analytics.MobclickAgent;
 import com.zuowen.magic.BaseActivity;
 import com.zuowen.magic.MagicApplication;
 import com.zuowen.magic.R;
@@ -137,7 +138,16 @@ public class SplashPageActivity extends BaseActivity {
             return (view==object);
         }
     }
-
-
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("SplashPageActivity");
+        MobclickAgent.onResume(this);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("SplashPageActivity");
+        MobclickAgent.onPause(this);
+    }
 }

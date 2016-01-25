@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.zuowen.magic.BaseActivity;
 import com.zuowen.magic.R;
 import com.zuowen.magic.adapter.HomeAdapter;
@@ -303,5 +304,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         return super.onKeyDown(keyCode, event);
 
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
 
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
 }

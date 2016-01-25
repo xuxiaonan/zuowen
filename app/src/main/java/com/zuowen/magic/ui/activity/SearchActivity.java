@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.zuowen.magic.BaseActivity;
 import com.zuowen.magic.R;
 import com.zuowen.magic.adapter.ArtListAdapter;
@@ -123,5 +124,17 @@ public class SearchActivity extends BaseActivity{
                 mPtrFrameLayout.autoRefresh();
             }
         });
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("SearchActivity");
+        MobclickAgent.onResume(this);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("SearchActivity");
+        MobclickAgent.onPause(this);
     }
 }

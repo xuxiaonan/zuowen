@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.okhttp.Request;
+import com.umeng.analytics.MobclickAgent;
 import com.zuowen.magic.BaseActivity;
 import com.zuowen.magic.R;
 import com.zuowen.magic.bean.request.MagicLoginRequest;
@@ -132,7 +133,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void onClick(View v) {
                 clickTime();
-
+                Intent intent = new Intent(LoginActivity.this, ForgetActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -140,7 +142,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void onClick(View v) {
                 clickTime();
-                Intent intent=new Intent(LoginActivity.this,RegistActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegistActivity.class);
                 startActivity(intent);
             }
         });
@@ -164,5 +166,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 startActivity(intent);
                 break;
         }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("LoginActivity");
+        MobclickAgent.onResume(this);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("LoginActivity");
+        MobclickAgent.onPause(this);
     }
 }

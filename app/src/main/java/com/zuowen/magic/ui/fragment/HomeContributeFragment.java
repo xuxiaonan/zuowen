@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.umeng.analytics.MobclickAgent;
 import com.zuowen.magic.BaseFragment;
 import com.zuowen.magic.R;
 import com.zuowen.magic.bean.model.ContributeModel;
@@ -91,5 +92,12 @@ public class HomeContributeFragment extends BaseFragment {
         tv_activity.setItemsData(activitiesList, "请选择活动");
     }
 
-
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("HomeContributeFragment"); //统计页面，"MainScreen"为页面名称，可自定义
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("HomeContributeFragment");
+    }
 }

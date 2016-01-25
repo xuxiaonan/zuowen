@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 
+import com.umeng.analytics.MobclickAgent;
 import com.zuowen.magic.BaseActivity;
 import com.zuowen.magic.MagicApplication;
 import com.zuowen.magic.R;
@@ -22,8 +23,7 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        //友盟统计发送策略
-//        MobclickAgent.updateOnlineConfig(this);
+        MobclickAgent.setDebugMode( true );
 
 
         //延迟两秒进入主页面
@@ -35,9 +35,7 @@ public class SplashActivity extends BaseActivity {
 
             }
         }, 1000);
-//        AlphaAnimation aa = new AlphaAnimation(0.0f, 1.0f);
-//        aa.setDuration(2000);
-//        findViewById(R.id.rl_splash_root).startAnimation(aa);
+//
 
     }
 
@@ -88,6 +86,16 @@ public class SplashActivity extends BaseActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("SplashActivity");
+        MobclickAgent.onResume(this);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("SplashActivity");
+        MobclickAgent.onPause(this);
+    }
 }
